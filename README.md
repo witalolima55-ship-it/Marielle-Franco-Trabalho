@@ -49,100 +49,32 @@
       margin-top: 8px;
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 20px 0 18px;
-      padding: 12px;
-      background-color: rgba(80, 65, 50, 0.9);
-      border-radius: 8px;
-      border: 1px solid rgba(100, 85, 70, 0.5);
-    }
-
-    nav button {
-      padding: 11px 18px;
-      font-size: 1.05rem;
-      background-color: #a57f5a;
-      color: #fff;
-      border: 1px solid #8a6e50;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    nav button:hover {
-      background-color: #926c4e;
-      transform: translateY(-1px);
-    }
-
-    nav button.active {
-      background-color: #7a5c40;
-      transform: translateY(0);
-      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
-    }
-
     main {
       position: relative;
-      min-height: 460px;
-      margin-top: 20px;
+      margin-top: 24px;
     }
 
-    .tab-content {
-      display: none;
-      padding: 22px 20px;
-      border-radius: 8px;
+    section {
+      margin-bottom: 32px;
+      padding: 20px;
       background-color: rgba(90, 70, 55, 0.95);
+      border-radius: 8px;
       border: 1px solid rgba(120, 100, 85, 0.5);
     }
 
-    .tab-content.active {
-      display: block;
-      animation: fadeIn 0.8s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Biografia */
-    .biography {
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-
-    .biography h2 {
+    section h2 {
       font-size: 1.7rem;
       color: #d4b58d;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
-    .biography h3 {
-      font-size: 1.3rem;
-      color: #bdaa8e;
-      margin: 12px 0 6px 0;
-    }
-
-    .biography p {
-      margin-bottom: 10px;
-    }
-
-    /* Livros */
+    /* Livros 3D */
     .books-row {
       display: flex;
       justify-content: center;
-      gap: 38px;
+      gap: 40px;
       flex-wrap: wrap;
-      margin: 20px 0 15px;
+      margin: 16px 0 20px;
     }
 
     .book-card {
@@ -155,7 +87,7 @@
     }
 
     .book-card h3 {
-      margin: 12px 0 6px 0;
+      margin: 10px 0 6px 0;
       font-size: 1.15rem;
       color: #d4b58d;
     }
@@ -170,7 +102,7 @@
       width: 184px;
       height: 244px;
       perspective: 1400px;
-      margin: 10px auto 16px;
+      margin: 12px auto 16px;
       position: relative;
     }
 
@@ -256,20 +188,14 @@
       text-align: left;
       padding: 0 6px;
       color: #e8d9c0;
+      display: none;
     }
 
-    .book-details h3 {
-      color: #d4b58d;
-      margin-bottom: 8px;
-      font-size: 1.3rem;
+    .book-details.visible {
+      display: block;
     }
 
-    .book-details p {
-      margin-bottom: 9px;
-      line-height: 1.65;
-    }
-
-    /* Gráfico de barras com CSS puro */
+    /* Gráfico de barras */
     .chart-container {
       margin: 20px 0 12px;
       padding: 16px 12px;
@@ -289,24 +215,13 @@
       padding-left: 12px;
       color: #faf6ea;
       font-size: 0.93rem;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .chart-bar:hover {
-      background: linear-gradient(90deg, #926c4e, #7a5c40);
-      transform: scaleX(1.02);
+      transition: all 0.3s ease;
     }
 
     /* Quiz */
     .quiz {
       font-size: 1.02rem;
       color: #e8d9c0;
-    }
-
-    .quiz h2 {
-      font-size: 1.7rem;
-      color: #d4b58d;
-      margin-bottom: 14px;
     }
 
     .quiz h3 {
@@ -371,31 +286,32 @@
   <div class="container">
     <header>
       <h1>Livros de Marielle Franco – Biblioteca Antiga</h1>
-      <p>Um espaço imersivo e escuro, com quiz, livros 3D e gráficos em CSS.</p>
+      <p>Um espaço imersivo com livros 3D, gráficos e quiz, sem dependência de JavaScript para navegação.</p>
     </header>
 
     <nav>
-      <button id="btn-biography" class="active">Biografia</button>
-      <button id="btn-foto-book">Fotobiografia</button>
-      <button id="btn-laboratorio">Laboratório Favela</button>
-      <button id="btn-upp">UPP: três letras</button>
-      <button id="btn-quiz">Quiz sobre Marielle</button>
+      <p>
+        <strong>Seções:</strong>
+        <a href="#biography" style="margin-right:12px; color:#d4b58d;">Biografia</a>
+        <a href="#foto-book" style="margin-right:12px; color:#d4b58d;">Fotobiografia</a>
+        <a href="#laboratorio" style="margin-right:12px; color:#d4b58d;">Laboratório Favela</a>
+        <a href="#upp" style="margin-right:12px; color:#d4b58d;">UPP: três letras</a>
+        <a href="#quiz" style="color:#d4b58d;">Quiz</a>
+      </p>
     </nav>
 
     <main>
       <!-- Biografia -->
-      <section id="biography" class="tab-content active biography">
+      <section id="biography">
         <h2>Marielle Franco em poucas palavras</h2>
         <p><strong>Marielle Franco (1979–2018)</strong> foi socióloga, vereadora do Rio de Janeiro e uma das principais vozes contra a violência policial, o racismo e a militarização das favelas.</p>
         <p>Cresceu no Complexo da Maré, vivenciou violência estatal e pobreza, e transformou essa experiência em uma trajetória de resistência e análise política.</p>
-
-        <h3>Um símbolo de resistência</h3>
         <p>Eleita em 2016 com mais de 46 mil votos, Marielle dedicava‑se à defesa de direitos de mulheres, população negra, LGBTQIA+ e faveladas.</p>
         <p>Assassinada em 14 de março de 2018, seu nome vira símbolo internacional de luta pelos direitos humanos.</p>
       </section>
 
       <!-- Fotobiografia -->
-      <section id="foto-book" class="tab-content">
+      <section id="foto-book">
         <h2>Livro‑1: O Livro de Marielle Franco (Fotobiografia)</h2>
         <div class="books-row">
           <div class="book-card">
@@ -413,7 +329,7 @@
             </div>
             <p><em>Fotobiografia com imagens e depoimentos de sua trajetória.</em></p>
             <button id="open-foto" class="open-book-btn">Abrir o livro</button>
-            <div id="details-foto" class="book-details" style="display: none;">
+            <div id="details-foto" class="book-details">
               <h3>Ideia central</h3>
               <p>Este livro mostra Marielle em sua própria voz, com fotos de infância, juventude, atos públicos e mandato, sem reduzi‑la apenas ao símbolo de seu assassinato.</p>
               <h3>Para quem é?</h3>
@@ -424,7 +340,7 @@
       </section>
 
       <!-- Laboratório Favela -->
-      <section id="laboratorio" class="tab-content">
+      <section id="laboratorio">
         <h2>Livro‑2: Laboratório Favela</h2>
         <div class="books-row">
           <div class="book-card">
@@ -441,24 +357,25 @@
             </div>
             <p><em>Análise crítica da militarização e da violência estatal nas favelas.</em></p>
             <button id="open-lab" class="open-book-btn">Abrir o livro</button>
-            <div id="details-lab" class="book-details" style="display: none;">
+            <div id="details-lab" class="book-details">
               <h3>Princípio central</h3>
               <p>Marielle mostra como a favela vira “laboratório” de políticas de segurança que combinam ocupação militar, controles e criminalização dos pobres.</p>
               <h3>Estado Penal</h3>
               <p>O livro aponta para a formação de um Estado Penal, que usa a “insegurança social” para justificar operações de exceção e suspensão de direitos.</p>
               <div class="chart-container">
-                         <p><strong>Temas principais (visão rápida)</strong></p>
-              <div class="chart-bar" style="width: 95%;">Militarização e violência estatal</div>
-              <div class="chart-bar" style="width: 80%;">Criminalização da pobreza</div>
-              <div class="chart-bar" style="width: 90%;">Favela como espaço político</div>
-              <div class="chart-bar" style="width: 75%;">Organização comunitária e resistência</div>
+                <p><strong>Temas principais (visão rápida)</strong></p>
+                <div class="chart-bar" style="width: 95%;">Militarização e violência estatal</div>
+                <div class="chart-bar" style="width: 80%;">Criminalização da pobreza</div>
+                <div class="chart-bar" style="width: 90%;">Favela como espaço político</div>
+                <div class="chart-bar" style="width: 75%;">Organização comunitária e resistência</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- UPP: a redução da favela a três letras -->
-      <section id="upp" class="tab-content">
+      <section id="upp">
         <h2>Livro‑3: UPP – A redução da favela a três letras</h2>
         <div class="books-row">
           <div class="book-card">
@@ -475,13 +392,14 @@
             </div>
             <p><em>Estudo das UPPs como política de segurança e controle territorial.</em></p>
             <button id="open-upp" class="open-book-btn">Abrir o livro</button>
-            <div id="details-upp" class="book-details" style="display: none;">
+            <div id="details-upp" class="book-details">
               <h3>O que são as UPPs?</h3>
               <p>Unidades de Polícia Pacificadora foram postos de polícia comunitária implantados em favelas estratégicas do Rio para criar uma falsa sensação de segurança e preparar a cidade para grandes eventos.</p>
               <h3>Crítica de Marielle</h3>
               <p>Para a autora, as UPPs funcionam como ferramenta de controle seletivo, ligada a interesses imobiliários e de imagem, sem resolver a violência de forma estrutural.</p>
-              <h3>Estado Penal e encarceramento</h3>
+                            <h3>Estado Penal e encarceramento</h3>
               <p>Marielle mostra que a política de segurança amplia o encarceramento em massa e a segregação, tratando a favela como território a ser domesticado, não como sujeito político.</p>
+
               <div class="chart-container">
                 <p><strong>Impactos das UPPs (visão rápida)</strong></p>
                 <div class="chart-bar" style="width: 85%;">Fortalecimento do Estado Penal</div>
@@ -494,54 +412,54 @@
         </div>
       </section>
 
-      <!-- Aba de Quiz -->
-      <section id="quiz" class="tab-content">
+      <!-- Quiz -->
+      <section id="quiz">
         <h2>Quiz sobre Marielle Franco</h2>
         <p>Teste o que você já sabe sobre a vida e a obra de Marielle Franco.</p>
 
         <div class="quiz">
           <div id="q1">
             <h3>1. Em que cidade Marielle Franco foi vereadora?</h3>
-            <button onclick="checkQuiz(1, 0)">a) São Paulo</button>
-            <button onclick="checkQuiz(1, 1)">b) Rio de Janeiro</button>
-            <button onclick="checkQuiz(1, 2)">c) Belo Horizonte</button>
-            <button onclick="checkQuiz(1, 3)">d) Salvador</button>
+            <button class="quiz-btn" onclick="check(1, 0)">a) São Paulo</button>
+            <button class="quiz-btn" onclick="check(1, 1)">b) Rio de Janeiro</button>
+            <button class="quiz-btn" onclick="check(1, 2)">c) Belo Horizonte</button>
+            <button class="quiz-btn" onclick="check(1, 3)">d) Salvador</button>
             <div id="fb1" class="feedback" style="display: none;"></div>
           </div>
 
           <div id="q2" style="margin-top: 16px;">
             <h3>2. Qual é o tema central do livro “Laboratório Favela”?</h3>
-            <button onclick="checkQuiz(2, 0)">a) Moda nas favelas</button>
-            <button onclick="checkQuiz(2, 1)">b) Violência e política nas favelas do Rio</button>
-            <button onclick="checkQuiz(2, 2)">c) Economia informal</button>
-            <button onclick="checkQuiz(2, 3)">d) História da arquitetura</button>
+            <button class="quiz-btn" onclick="check(2, 0)">a) Moda nas favelas</button>
+            <button class="quiz-btn" onclick="check(2, 1)">b) Violência e política nas favelas do Rio</button>
+            <button class="quiz-btn" onclick="check(2, 2)">c) Economia informal</button>
+            <button class="quiz-btn" onclick="check(2, 3)">d) História da arquitetura</button>
             <div id="fb2" class="feedback" style="display: none;"></div>
           </div>
 
           <div id="q3" style="margin-top: 16px;">
             <h3>3. O que significa UPP no contexto da obra de Marielle?</h3>
-            <button onclick="checkQuiz(3, 0)">a) Unidade de Políticas Públicas</button>
-            <button onclick="checkQuiz(3, 1)">b) Unidades de Polícia Pacificadora</button>
-            <button onclick="checkQuiz(3, 2)">c) Unidade de Produção Popular</button>
-            <button onclick="checkQuiz(3, 3)">d) Unidade de Planejamento Profissional</button>
+            <button class="quiz-btn" onclick="check(3, 0)">a) Unidade de Políticas Públicas</button>
+            <button class="quiz-btn" onclick="check(3, 1)">b) Unidades de Polícia Pacificadora</button>
+            <button class="quiz-btn" onclick="check(3, 2)">c) Unidade de Produção Popular</button>
+            <button class="quiz-btn" onclick="check(3, 3)">d) Unidade de Planejamento Profissional</button>
             <div id="fb3" class="feedback" style="display: none;"></div>
           </div>
 
           <div id="q4" style="margin-top: 16px;">
             <h3>4. Em que ano Marielle foi eleita vereadora?</h3>
-            <button onclick="checkQuiz(4, 0)">a) 2012</button>
-            <button onclick="checkQuiz(4, 1)">b) 2014</button>
-            <button onclick="checkQuiz(4, 2)">c) 2016</button>
-            <button onclick="checkQuiz(4, 3)">d) 2018</button>
+            <button class="quiz-btn" onclick="check(4, 0)">a) 2012</button>
+            <button class="quiz-btn" onclick="check(4, 1)">b) 2014</button>
+            <button class="quiz-btn" onclick="check(4, 2)">c) 2016</button>
+            <button class="quiz-btn" onclick="check(4, 3)">d) 2018</button>
             <div id="fb4" class="feedback" style="display: none;"></div>
           </div>
 
           <div id="q5" style="margin-top: 16px;">
             <h3>5. Qual é o foco da “fotobiografia” de Marielle?</h3>
-            <button onclick="checkQuiz(5, 0)">a) Receitas de comida típica</button>
-            <button onclick="checkQuiz(5, 1)">b) Memórias de infância em formato de fotos</button>
-            <button onclick="checkQuiz(5, 2)">c) Análise estatística de violência</button>
-            <button onclick="checkQuiz(5, 3)">d) Mapas urbanos de favelas</button>
+            <button class="quiz-btn" onclick="check(5, 0)">a) Receitas de comida típica</button>
+            <button class="quiz-btn" onclick="check(5, 1)">b) Memórias de infância em formato de fotos</button>
+            <button class="quiz-btn" onclick="check(5, 2)">c) Análise estatística de violência</button>
+            <button class="quiz-btn" onclick="check(5, 3)">d) Mapas urbanos de favelas</button>
             <div id="fb5" class="feedback" style="display: none;"></div>
           </div>
 
@@ -558,35 +476,6 @@
   </div>
 
   <script>
-    // Abas
-    const btnBiography    = document.getElementById("btn-biography");
-    const btnFotoBook     = document.getElementById("btn-foto-book");
-    const btnLaboratorio  = document.getElementById("btn-laboratorio");
-    const btnUpp          = document.getElementById("btn-upp");
-    const btnQuiz         = document.getElementById("btn-quiz");
-
-    const tabBiography    = document.getElementById("biography");
-    const tabFotoBook     = document.getElementById("foto-book");
-    const tabLaboratorio  = document.getElementById("laboratorio");
-    const tabUpp          = document.getElementById("upp");
-    const tabQuiz         = document.getElementById("quiz");
-
-    const buttons = [btnBiography, btnFotoBook, btnLaboratorio, btnUpp, btnQuiz];
-    const tabs    = [tabBiography, tabFotoBook, tabLaboratorio, tabUpp, tabQuiz];
-
-    function setActiveTab(button, tab) {
-      buttons.forEach(b => b.classList.remove("active"));
-      tabs.forEach(t => t.classList.remove("active"));
-      button.classList.add("active");
-      tab.classList.add("active");
-    }
-
-    btnBiography.addEventListener("click",   () => setActiveTab(btnBiography,   tabBiography));
-    btnFotoBook.addEventListener("click",    () => setActiveTab(btnFotoBook,    tabFotoBook));
-    btnLaboratorio.addEventListener("click", () => setActiveTab(btnLaboratorio, tabLaboratorio));
-    btnUpp.addEventListener("click",         () => setActiveTab(btnUpp,        tabUpp));
-    btnQuiz.addEventListener("click",        () => setActiveTab(btnQuiz,       tabQuiz));
-
     // Livro 1 – Fotobiografia
     const bookFoto = document.getElementById("book-foto");
     const openBtnFoto = document.getElementById("open-foto");
@@ -594,13 +483,10 @@
 
     openBtnFoto.addEventListener("click", function() {
       bookFoto.classList.toggle("opened");
-      if (bookFoto.classList.contains("opened")) {
-        detailsFoto.style.display = "block";
-        openBtnFoto.textContent = "Fechar o livro";
-      } else {
-        detailsFoto.style.display = "none";
-        openBtnFoto.textContent = "Abrir o livro";
-      }
+      detailsFoto.classList.toggle("visible");
+      openBtnFoto.textContent = detailsFoto.classList.contains("visible")
+        ? "Fechar o livro"
+        : "Abrir o livro";
     });
 
     // Livro 2 – Laboratório Favela
@@ -609,15 +495,11 @@
     const detailsLab = document.getElementById("details-lab");
 
     openBtnLab.addEventListener("click", function() {
-      setActiveTab(btnLaboratorio, tabLaboratorio);
       bookLab.classList.toggle("opened");
-      if (bookLab.classList.contains("opened")) {
-        detailsLab.style.display = "block";
-        openBtnLab.textContent = "Fechar o livro";
-      } else {
-        detailsLab.style.display = "none";
-        openBtnLab.textContent = "Abrir o livro";
-      }
+      detailsLab.classList.toggle("visible");
+      openBtnLab.textContent = detailsLab.classList.contains("visible")
+        ? "Fechar o livro"
+        : "Abrir o livro";
     });
 
     // Livro 3 – UPP
@@ -626,22 +508,18 @@
     const detailsUpp = document.getElementById("details-upp");
 
     openBtnUpp.addEventListener("click", function() {
-      setActiveTab(btnUpp, tabUpp);
       bookUpp.classList.toggle("opened");
-      if (bookUpp.classList.contains("opened")) {
-        detailsUpp.style.display = "block";
-        openBtnUpp.textContent = "Fechar o livro";
-      } else {
-        detailsUpp.style.display = "none";
-        openBtnUpp.textContent = "Abrir o livro";
-      }
+      detailsUpp.classList.toggle("visible");
+      openBtnUpp.textContent = detailsUpp.classList.contains("visible")
+        ? "Fechar o livro"
+        : "Abrir o livro";
     });
 
     // Quiz (5 perguntas)
     let score = 0;
     const total = 5;
 
-    function checkQuiz(q, index) {
+    function check(q, index) {
       const feedback = document.getElementById("fb" + q);
       const resultText = document.getElementById("quiz-result-text");
 
